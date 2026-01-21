@@ -9,6 +9,7 @@ plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
     id 'java'
+    id 'org.openjfx.javafxplugin' version '0.1.0'  // Add JavaFX plugin
 }
 
 repositories {
@@ -20,10 +21,10 @@ dependencies {
     // MySQL JDBC driver
     implementation 'com.mysql:mysql-connector-j:8.3.0'
 
-
-    // JavaFX libraries
-    implementation 'org.openjfx:javafx-controls:20.0.2'
-    implementation 'org.openjfx:javafx-fxml:20.0.2'
+ // JavaFX dependencies
+    implementation 'org.openjfx:javafx-controls:21'
+    implementation 'org.openjfx:javafx-fxml:21'
+    implementation 'org.openjfx:javafx-graphics:21'
 
     // JUnit 5 for testing
     testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
@@ -41,6 +42,10 @@ java {
 application {
     // Define the main class for the application.
     mainClass = 'java_project.App'
+}
+javafx {
+    version = "21"
+    modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.graphics' ]
 }
 
 tasks.named('test') {

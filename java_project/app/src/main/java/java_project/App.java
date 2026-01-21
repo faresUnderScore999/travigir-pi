@@ -3,34 +3,56 @@
  */
 package java_project;
 
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import java.sql.Connection;
-
-import main.java.java_project.utils.DatabaseConnection;
-import java.sql.Connection;
-import java.sql.SQLException;
 import java.sql.Statement;
+import java_project.utils.DatabaseConnection;
 
-public class App {
+public class App extends Application {
+    
     public String getGreeting() {
         return "Hello World!";
     }
 
-    public static void main(String[] args) {
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        try {
+            // Initialize database
+            initializeDatabase();
+            
+            // Load FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/java_project/views/tripsView.fxml"));
+            Parent root = loader.load();
+            
+            // Create scene and set stage
+            Scene scene = new Scene(root, 900, 600);
+            primaryStage.setTitle("Trip Manager");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-   try {
-        String sql = """
-            CREATE TABLE IF NOT EXISTS trips (
-                id INT AUTO_INCREMENT PRIMARY KEY,
-                title VARCHAR(150) NOT NULL,
-                description TEXT,
-                destination VARCHAR(100) NOT NULL,
-                start_date DATE NOT NULL,
-                end_date DATE NOT NULL,
-                price DECIMAL(10,2) NOT NULL,
-                image_url VARCHAR(255),
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-            ) ENGINE=InnoDB;
-        """;
+    private void initializeDatabase() {
+        try {
+            String sql = """
+                CREATE TABLE IF NOT EXISTS trips (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    title VARCHAR(150) NOT NULL,
+                    description TEXT,
+                    destination VARCHAR(100) NOT NULL,
+                    start_date DATE NOT NULL,
+                    end_date DATE NOT NULL,
+                    price DECIMAL(10,2) NOT NULL,
+                    image_url VARCHAR(255),
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                ) ENGINE=InnoDB;
+            """;
             Connection conn = DatabaseConnection.getInstance().getConnection();
             System.out.println("✅ Connected to MySQL successfully");
             Statement stmt = conn.createStatement();
@@ -39,7 +61,9 @@ public class App {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
 
-        System.out.println(new App().getGreeting());
+    public static void main(String[] args) {
+        launch(args);
     }
 }
