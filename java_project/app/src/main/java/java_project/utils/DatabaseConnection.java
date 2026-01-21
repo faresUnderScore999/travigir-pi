@@ -1,4 +1,4 @@
-package main.java.java_project;
+package main.java.java_project.utils;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

@@ -5,7 +5,7 @@ package java_project;
 
 import java.sql.Connection;
 
-import main.java.java_project.DatabaseConnection;
+import main.java.java_project.utils.DatabaseConnection;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
