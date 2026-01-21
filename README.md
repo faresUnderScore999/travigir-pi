@@ -1,109 +1,125 @@
 # 🌍 Travigir-PI
 
-**Travigir-PI** is a two-part travel management platform built as part of an academic project, combining a **JavaFX desktop application** and a **Symfony 6.4 web application**.  
-The goal is to cover the full lifecycle of a modern travel system: administration, users, bookings, and business logic.
+**Travigir-PI** est une plateforme de gestion de voyages et de loisirs, développée dans le cadre du **PIDEV**, combinant :
+- une **application desktop JavaFX**
+- une **application web Symfony 6.4**
+
+Le projet repose sur une séparation claire des responsabilités entre **Voyageurs (utilisateurs finaux)** et **Administrateurs (gestionnaires)**, sur les deux plateformes.
 
 ---
 
-## 🧱 Project Architecture
+## 🧱 Architecture Générale (Approche PIDEV)
 
-The project is divided into **two main components**, developed in separate sprints:
+L’organisation du projet suit une structure **classique, efficace et réaliste**, adaptée aux systèmes professionnels de voyage.
+
+👉 Les responsabilités sont séparées selon :
+- **le rôle** (Voyageur / Admin)
+- **la plateforme** (Web / Desktop)
+
+---
+
+## 👤 Côté Voyageur (Utilisateur Final)
+
+Le **voyageur** consomme les services et interagit avec le système.
+
+### 🌐 Web – Front-Office (Interface principale)
+C’est la **vitrine publique** du projet.
+
+Fonctionnalités :
+- Consultation du catalogue de voyages et d’activités
+- Réservations de services
+- Gestion du profil client
+- Interaction avec l’IA  
+  *(ex : recommandations de destinations, suggestions personnalisées)*
+
+---
+
+### 🖥️ Java – Front-Office (Client Desktop)
+Dans le contexte PIDEV, cette partie correspond à une :
+- borne interactive
+- ou application desktop client
+
+Fonctionnalités :
+- Interface simplifiée pour consulter les offres
+- Recherche rapide de disponibilités
+- Consultation des réservations personnelles
+
+---
+
+## 🛠️ Côté Administrateur (Gestionnaire)
+
+L’**administrateur** supervise, valide et configure le système.
+
+### 🌐 Web – Back-Office (Administration en ligne)
+Interface de gestion accessible via navigateur.
+
+Fonctionnalités :
+- Tableaux de bord (dashboards)
+- Validation des réservations et paiements
+- Modération des avis voyageurs
+
+⚠️ **Important**  
+- Interdiction d’utiliser **EasyAdmin** ou **AdminBundle**
+- Toutes les vues et fonctionnalités sont développées manuellement
+
+---
+
+### 🖥️ Java – Back-Office (Application lourde Desktop)
+Application de gestion avancée destinée aux administrateurs.
+
+Fonctionnalités :
+- Gestion poussée des stocks  
+  *(hôtels, vols, bus, activités, disponibilités)*
+- Statistiques détaillées
+- Export de données
+- Configuration technique du système
+
+---
+
+## 🧩 Composants du Projet
 
 ### 1️⃣ Desktop Application – JavaFX (Sprint 1)
-A **heavy client** application installed locally, mainly focused on **administration and internal management**.
 
-#### 🔧 Technologies
+#### Technologies
 - Java
 - JavaFX (UI)
-- JDBC (Database access)
-- Maven (Dependency management)
+- JDBC
+- Maven
 
-#### 🎯 Purpose
-- Back-office oriented
-- Data management and validation
-- Administrative dashboards
-
-#### 🧩 Main Modules
-- **Back-Office (Admin)**
-  - Dashboards
-  - User management
-  - Data validation and control
-- **Front-Office (User)**
-  - Simple interfaces
-  - Data entry and service visualization
-
-#### ✅ Required Features
-- **CRUD Operations**
-  - Create, Read, Update, Delete for all assigned entities
-- **Input Validation**
-  - Strict validation (e.g. numeric-only phone numbers, required fields)
-- **Advanced Features**
-  - External API integration (e.g. Google Maps)
-  - Optional AI-powered features
-- **File Management**
-  - Image handling via URLs
-  - No binary data stored directly in the database
+#### Fonctionnalités clés
+- CRUD complet sur les entités
+- Validation stricte des entrées utilisateur
+- Intégration d’API externes (ex : Google Maps)
+- Gestion d’images via URLs (pas de stockage BDD)
 
 ---
 
 ### 2️⃣ Web Application – Symfony 6.4 (Sprint 2)
-A **browser-based platform** intended for public users and administrators.
 
-#### 🔧 Technologies
+#### Technologies
 - PHP 8
 - Symfony 6.4
-- Twig (templating engine)
+- Twig
 - Doctrine ORM
 
-#### 🎯 Purpose
-- Public-facing travel website
-- Booking and user interaction
-- Secure administration panel
-
-#### 🧩 Main Modules
-- **Front-Office (Public)**
-  - Travel package browsing
-  - User registration & authentication
-  - Booking system
-  - Responsive and user-friendly UI
-- **Back-Office (Admin)**
-  - Custom-built admin dashboard
-  - Data management  
-  ⚠️ *EasyAdmin & AdminBundle are strictly forbidden*
-
-#### ✅ Required Features
-- **Twig Templates**
-  - Clean, responsive UI/UX
-- **Security**
-  - Authentication & Authorization
-  - No FOSUserBundle
-- **Advanced Forms**
-  - Symfony Form component
-  - Server-side validation
-- **Business Logic**
-  - Travel cost calculations
-  - PDF invoice generation
-  - Optional AI-based recommendations
+#### Fonctionnalités clés
+- Front-office responsive et ergonomique
+- Back-office sécurisé (fait main)
+- Authentification & autorisation (sans FOSUserBundle)
+- Formulaires avancés avec validation
+- Logique métier complexe  
+  *(calculs de prix, génération de PDF, IA, etc.)*
 
 ---
 
-## 🚀 Key Objectives
-- Apply **clean architecture** and separation of concerns
-- Implement **real-world validation and security**
-- Demonstrate **full-stack development skills**
-- Build maintainable and scalable features
+## 🎯 Objectifs du Projet
+- Séparation claire des responsabilités
+- Sécurité et validation réelles
+- Architecture maintenable et évolutive
+- Mise en pratique concrète du full-stack
 
 ---
 
-## 📌 Notes
-- This project focuses on **logic, structure, and quality**, not shortcuts.
-- Every feature is manually implemented to demonstrate mastery of the stack.
-
----
-
-## 🧠 Author
+## 👨‍💻 Auteur
 **Fares Ben**  
-Full-Stack Developer (Java | Symfony | Web)
-
----
-
+Full-Stack Developer — Java | Symfony | Web
