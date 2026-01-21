@@ -1,0 +1,11 @@
+git clone https://github.com/faresUnderScore999/TravigirPI.git
+cd TravigirPI
+Step A — Install Java + VS Code or IDE
+
+Java 21 (same as your Gradle toolchain)
+
+VS Code with Java Extension Pack
+
+Gradle (optional, they can use wrapper gradlew.bat)
+.\gradlew.bat build
+.\gradlew.bat run
