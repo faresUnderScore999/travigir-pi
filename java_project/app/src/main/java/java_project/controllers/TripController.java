@@ -6,7 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import java_project.models.Trip;
-import java_project.models.TripsModel;
+import java_project.services.TripService;
 
 public class TripController {
     
@@ -41,9 +41,11 @@ public class TripController {
     private Button deleteButton;
 
     private ObservableList<Trip> trips;
+    private TripService tripService;
 
     @FXML
     public void initialize() {
+        tripService = new TripService();
         trips = FXCollections.observableArrayList();
         tripsListView.setItems(trips);
         loadTrips();
@@ -67,7 +69,7 @@ public class TripController {
     private void loadTrips() {
         try {
             trips.clear();
-            trips.addAll(TripsModel.getAllTrips());
+            trips.addAll(tripService.getAllTrips());
         } catch (Exception e) {
             showAlert("Error", "Failed to load trips: " + e.getMessage());
             e.printStackTrace();
@@ -94,7 +96,7 @@ public class TripController {
                 imageUrlField.getText()
             );
 
-            TripsModel.addTrip(newTrip);
+            tripService.addTrip(newTrip);
             clearFields();
             loadTrips();
             showAlert("Success", "Trip added successfully!");
@@ -115,7 +117,7 @@ public class TripController {
         }
 
         try {
-            TripsModel.deleteTrip(selectedTrip.getId());
+            tripService.deleteTrip(selectedTrip.getId());
             loadTrips();
             showAlert("Success", "Trip deleted successfully!");
         } catch (Exception e) {
