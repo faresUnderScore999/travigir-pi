@@ -82,7 +82,7 @@ public class TripController {
             if (titleField.getText().isEmpty() || destinationField.getText().isEmpty() || 
                 priceField.getText().isEmpty() || startDatePicker.getValue() == null || 
                 endDatePicker.getValue() == null) {
-                showAlert("Validation Error", "Please fill in all required fields");
+                showAlert("Validation Error", "Please ca u fill in all required fields");
                 return;
             }
 
