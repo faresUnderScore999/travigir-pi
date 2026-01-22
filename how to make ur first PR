@@ -1,0 +1,25 @@
+git clone https://github.com/faresUnderScore999
+cd 
+git checkout -b ur_name_version
+git add .
+git commit -m "msg"
+git push origin fix-login-bug
+
+
+Go to the repo on GitHub
+
+You’ll see “Compare & pull request” → click it
+OR
+Pull Requests → New Pull Request
+
+Base: main 
+
+Compare: 
+
+Write:
+
+Clear title
+
+Short description of what & why
+
+Click Create pull request
