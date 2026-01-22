@@ -1,11 +1,18 @@
 git clone https://github.com/faresUnderScore999/TravigirPI.git
 cd TravigirPI
-Step A — Install Java + VS Code or IDE
 
-Java 21 (same as your Gradle toolchain)
+Firewall	Ensure port 3306 is open on your Cloud DB.
 
-VS Code with Java Extension Pack
+ubunto:
+sudo apt update
+sudo apt install openjdk-21-jdk
+sudo apt install libgtk-3-0 libglu1-mesa libxtst6 libxxf86vm1
+chmod +x gradlew
+./gradlew build
+./gradlew.bat run --no-configuration-cache
 
-Gradle (optional, they can use wrapper gradlew.bat)
-.\gradlew.bat build
-.\gradlew.bat run
+windows:
+Install JDK 21 manually.
+java -version
+./gradlew build
+./gradlew.bat run --no-configuration-cache
