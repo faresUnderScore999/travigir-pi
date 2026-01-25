@@ -56,7 +56,7 @@ Interface de gestion accessible via navigateur.
 Fonctionnalités :
 - Tableaux de bord (dashboards)
 - Validation des réservations et paiements
-- Modération des avis voyageurs
+- Gestion des reclamation voyageurs
 
 ⚠️ **Important**  
 - Interdiction d’utiliser **EasyAdmin** ou **AdminBundle**
@@ -68,8 +68,7 @@ Fonctionnalités :
 Application de gestion avancée destinée aux administrateurs.
 
 Fonctionnalités :
-- Gestion poussée des stocks  
-  *(hôtels, vols, bus, activités, disponibilités)*
+- Gestion des trips
 - Statistiques détaillées
 - Export de données
 - Configuration technique du système
@@ -123,3 +122,4 @@ Fonctionnalités :
 ## 👨‍💻 Auteur
 **Fares Ben**  
 Full-Stack Developer — Java | Symfony | Web
+
